@@ -1,0 +1,21 @@
+Iteration 20 Statistics
+==================================================
+Total Samples: 64
+Average Error: 15.1965бу
+Median Error: 14.7101бу
+Standard Deviation: 8.9190бу
+Min Error: 0.9114бу
+Max Error: 55.0714бу
+50th Percentile: 14.7101бу
+95th Percentile: 24.7540бу
+99th Percentile: 44.8326бу
+
+Visualization Success:
+3D visualizations: 10/10
+2D visualizations: 10/10
+
+Quality Distribution:
+Excellent (<5бу): 6/64 (9.4%)
+Good (<10бу): 19/64 (29.7%)
+Acceptable (<15бу): 34/64 (53.1%)
+Poor (б▌15бу): 30/64 (46.9%)

@@ -10,6 +10,23 @@ import os
 import copy
 import yaml
 
+import torch
+print(f"可用GPU数量: {torch.cuda.device_count()}")
+for i in range(torch.cuda.device_count()):
+    print(f"GPU {i}: {torch.cuda.get_device_name(i)}")
+
+print("PyTorch 版本：", torch.__version__)  # 打印 PyTorch 的版本号
+
+# 检查 CUDA 是否可用，并设置设备（"cuda:0" 或 "cpu"）
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+print("设备：", device)  # 打印当前使用的设备
+print("CUDA 可用：", torch.cuda.is_available())  # 打印 CUDA 是否可用
+print("cuDNN 已启用：", torch.backends.cudnn.enabled)  # 打印 cuDNN 是否已启用
+
+# 打印 PyTorch 支持的 CUDA 和 cuDNN 版本
+print("支持的 CUDA 版本：", torch.version.cuda)
+print("cuDNN 版本：", torch.backends.cudnn.version())
+
 if __name__ == "__main__":
   config = yaml.load(open(sys.argv[1]), Loader=yaml.FullLoader)
   readername = config["reader"]
@@ -25,11 +42,11 @@ if __name__ == "__main__":
   if not os.path.exists(savepath):
     os.makedirs(savepath)
 
-  device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
+  device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
   
   print("Read data")
-  dataset = dataloader.txtload(labelpath, imagepath, config["params"]["batch_size"], train=True, num_workers=4, header=True)
-
+  # dataset = dataloader.txtload(labelpath, imagepath, config["params"]["batch_size"], train=True, num_workers=4, header=True)
+  dataset = dataloader.txtload(labelpath, imagepath, config["params"]["batch_size"], num_workers=4, header=True)
   print("Model building")
   net = model.model()
   net.train()
