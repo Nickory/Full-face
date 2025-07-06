@@ -12,17 +12,20 @@ train:
     model_name: weight
     step: 5
   data:
-    image: "D:\\gaze_estimate\\dataset\\FaceBased\\MPIIFaceGaze\\Image"
-    label: "D:\\gaze_estimate\\dataset\\FaceBased\\MPIIFaceGaze\\Label"
+    image: "D:/gaze_estimate/dataset/FaceBased/MPIIFaceGaze/Image/train"
+    label: "D:/gaze_estimate/dataset/FaceBased/MPIIFaceGaze/Label/train.label"
+#    image: "D:\gaze_estimate\dataset\FaceBased\MPIIFaceGaze\Image"
+#    label: "D:\gaze_estimate\dataset\FaceBased\MPIIFaceGaze\Label\p00.label"
+
   pretrains: "None"
 test:
    load:
-      begin_step: 20
+      begin_step: 5
       end_step: 20
       steps: 5
       load_path: "/model/Full-Face-gaze360/trainOnMpii"
       model_name: weight
    data:
-      image: "/home/cyh/GazeDataset20200519/FaceBased/MPIIFaceGaze/Image"
-      label: "/home/cyh/GazeDataset20200519/FaceBased/MPIIFaceGaze/Label"
+      image: "D:/gaze_estimate/dataset/FaceBased/MPIIFaceGaze/Image/test"
+      label: "D:/gaze_estimate/dataset/FaceBased/MPIIFaceGaze/Label/test.label"
 reader: reader_mpii

@@ -1,5 +1,5 @@
 import numpy as np
-import cv2 
+import cv2
 import os
 from torch.utils.data import Dataset, DataLoader
 import torch
@@ -9,7 +9,7 @@ def gazeto2d(gaze):
   pitch = np.arcsin(-gaze[1])
   return np.array([yaw, pitch])
 
-class loader(Dataset): 
+class loader(Dataset):
   def __init__(self, path, root, header=True):
     self.lines = []
     if isinstance(path, list):
@@ -51,7 +51,7 @@ class loader(Dataset):
     # limg = cv2.imread(os.path.join(self.root, lefteye))/255.0
     # limg = limg.transpose(2, 0, 1)
 
-    
+
     fimg = cv2.imread(os.path.join(self.root, face))
     fimg = cv2.resize(fimg, (448, 448))/255.0
     fimg = fimg.transpose(2, 0, 1)
