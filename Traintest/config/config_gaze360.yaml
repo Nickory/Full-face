@@ -12,8 +12,8 @@ train:
     model_name: weight
     step: 5
   data:
-    image: "D:/gaze_estimate/dataset/FaceBased/Gaze360/Image"
-    label: "D:/gaze_estimate/dataset/FaceBased/Gaze360/Label/train.label"
+    image: "~/autodl-tmp/gaze_estimate/dataset/FaceBased/Gaze360/Image"
+    label: "~/autodl-tmp/gaze_estimate/dataset/FaceBased/Gaze360/Label/train.label"
   pretrains: "None"
 test:
    load:
@@ -23,7 +23,7 @@ test:
       load_path: "/model/Full-Face-gaze360"
       model_name: weight
    data:
-      image: "D:/gaze_estimate/dataset/FaceBased/Gaze360/Image"
-      label: "D:/gaze_estimate/dataset/FaceBased/Gaze360/Label/test.label"
+      image: "~/autodl-tmp/gaze_estimate/dataset/FaceBased/Gaze360/Image"
+      label: "~/autodl-tmp/gaze_estimate/dataset/FaceBased/Gaze360/Label/test.label"
 
 reader: reader_gaze360
